@@ -33,7 +33,8 @@ DJANGO_APPS = [
 ]
 EXTERNAL_APPS = []
 LOCAL_APPS = [
-    'cottidie'
+    'cottidie',
+    'cottidie.base',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + LOCAL_APPS
@@ -94,6 +95,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'base.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
