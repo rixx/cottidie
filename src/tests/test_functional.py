@@ -1,12 +1,13 @@
 import pytest
 
 
+@pytest.mark.django_db
 @pytest.mark.parametrize('url,verb,expected_response', [
-    ('/admin/login/', 'GET', 200),
+    ('/admin/', 'GET', 200),
 ])
-def test_urls(client, url, verb, expected_response):
+def test_urls(logged_in_superuser_client, url, verb, expected_response):
     print('running')
     if verb == 'GET':
-        response = client.get(url)
+        response = logged_in_superuser_client.get(url)
 
     assert response.status_code == expected_response
