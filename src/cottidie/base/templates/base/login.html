@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static "base/scss/login.scss" %}">
+{% endblock %}
+
+{% block content %}
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="text" placeholder="username" name="username">
+        <input type="text" placeholder="password" name="password">
+        <button type="submit">Log in</button>
+    </form>
+
+{% endblock %}
