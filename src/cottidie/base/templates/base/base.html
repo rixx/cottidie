@@ -1,7 +1,11 @@
+{% load compress %}
+{% load staticfiles %}
 <html>
     <head>
+        {% compress css %}
         {% block stylesheets %}
         {% endblock %}
+        {% endcompress %}
     </head>
 
     <body>

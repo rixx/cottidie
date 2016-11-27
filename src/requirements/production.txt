@@ -1,1 +1,2 @@
 Django==1.10.3
+django-libsass==0.7
