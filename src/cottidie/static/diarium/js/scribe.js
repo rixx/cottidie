@@ -14,9 +14,7 @@ var quill = new Quill('#scriptor', {
   strict: false,
   modules: {
     'clipboard': true,
-    'formula': true,
     'history': true,
-    'syntax': true,
     'toolbar': toolbarOptions,
   }
 });
