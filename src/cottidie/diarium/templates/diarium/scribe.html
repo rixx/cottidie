@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block external_stylesheets %}
+    <link href="https://cdn.quilljs.com/1.1.5/quill.snow.css" rel="stylesheet">
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{% static "diarium/scss/scribe.scss" %}" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+	<script src="https://cdn.quilljs.com/1.1.5/quill.js"></script>
+    <script src="{% static "diarium/js/scribe.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+    <form>
+        <div id="scriptor-form">
+            <div id="scriptor">
+                What's on your mind?
+            </div>
+            <button type="submit">
+                Save
+            </button>
+        </div>
+    </form>
+{% endblock %}

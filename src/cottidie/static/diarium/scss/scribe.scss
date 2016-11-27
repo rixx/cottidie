@@ -1,0 +1,17 @@
+#scriptor-form {
+    width: 65em;
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-align: stretch;
+}
+#scriptor {
+    height: 15em;
+}
+button {
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 1em;;
+    flex-grow: 4;
+}

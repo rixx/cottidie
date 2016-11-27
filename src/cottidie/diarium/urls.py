@@ -4,5 +4,6 @@ from . import views
 
 
 urlpatterns = [
-    url('^$', views.MainView.as_view(), name='main')
+    url('^scribe/', views.ScribeView.as_view(), name='scribe'),
+    url('^$', views.MainView.as_view(), name='main'),
 ]

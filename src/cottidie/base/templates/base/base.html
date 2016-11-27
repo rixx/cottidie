@@ -2,15 +2,20 @@
 {% load staticfiles %}
 <html>
     <head>
-        {% compress css %}
-        <link rel="stylesheet" type="text/x-scss" href="{% static "base/scss/main.scss" %}">
-        {% block stylesheets %}
+        {% block external_stylesheets %}
         {% endblock %}
+        {% compress css %}
+            <link rel="stylesheet" type="text/x-scss" href="{% static "base/scss/main.scss" %}">
+            {% block stylesheets %}
+            {% endblock %}
         {% endcompress %}
     </head>
 
     <body>
         {% block content %}
         {% endblock %}
+
+		{% block scripts %}
+		{% endblock %}
     </body>
 </html>
