@@ -37,6 +37,7 @@ EXTERNAL_APPS = [
 LOCAL_APPS = [
     'cottidie',
     'cottidie.base',
+    'cottidie.diarium'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + LOCAL_APPS
