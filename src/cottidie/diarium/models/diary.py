@@ -26,7 +26,11 @@ class Entry(models.Model):
     modified = models.DateTimeField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        kwargs['modified'] = now()
+        self.modified = now()
+
+        if 'update_fields' in kwargs:
+            kwargs['update_fields'] += 'modified'
+
         super().save(*args, **kwargs)
 
     def __str__(self):
