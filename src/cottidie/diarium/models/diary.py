@@ -4,7 +4,7 @@ from django.utils.timezone import now
 
 
 class Notebook(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='diaria')
     title = models.CharField(null=True, blank=True, max_length=250)
     created = models.DateTimeField(default=now)
     modified = models.DateTimeField(null=True, blank=True)
