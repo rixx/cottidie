@@ -29,7 +29,7 @@ class Entry(models.Model):
         self.modified = now()
 
         if 'update_fields' in kwargs:
-            kwargs['update_fields'] += 'modified'
+            kwargs['update_fields'] += ['modified']
 
         super().save(*args, **kwargs)
 
