@@ -32,3 +32,14 @@ class ScribeView(LoginRequiredMixin, TemplateView):
                 ctx['entry_data'] = qs.first().text
 
         return ctx
+
+    def get(self, *args, **kwargs):
+        pk = kwargs.get('pk')
+        if pk:
+            qs = Entry.objects.filter(
+                notebook__user=self.request.user,
+                pk=pk,
+            )
+            if not qs.exists():
+                return redirect('diarium:scribe')
+        return super().get(self, *args, **kwargs)
