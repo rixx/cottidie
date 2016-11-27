@@ -18,6 +18,16 @@ var quill = new Quill('#scriptor', {
     'toolbar': toolbarOptions,
   }
 });
+if(typeof(String.prototype.trim) === "undefined")
+{
+    String.prototype.trim = function()
+    {
+        return String(this).replace(/^\s+|\s+$/g, '');
+    };
+}
+
+quill.setContents(JSON.parse(document.getElementById('#scribe-content').innerHTML.trim()));
+
 var form = document.querySelector('form');
 form.onsubmit = function() {
   var about = document.querySelector('input[name=entry]');

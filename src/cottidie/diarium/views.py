@@ -19,3 +19,16 @@ class ScribeView(LoginRequiredMixin, TemplateView):
         notebook = request.user.diaria.first()
         entry = Entry.objects.create(notebook=notebook, text=content)
         return redirect('diarium:scribe-sg', pk=entry.pk)
+
+    def get_context_data(self, pk=None):
+        ctx = super().get_context_data()
+
+        if pk:
+            qs = Entry.objects.filter(
+                notebook__user=self.request.user,
+                pk=pk,
+            )
+            if qs.exists():
+                ctx['entry_data'] = qs.first().text
+
+        return ctx

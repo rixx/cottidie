@@ -26,4 +26,12 @@
             </button>
         </div>
     </form>
+
+    <div id='#scribe-content' style="display: none;">
+        {% if entry_data %}
+            {{ entry_data }}
+        {% else %}
+            {"ops":[{"insert":"What's on your mind?\n"}]}
+        {% endif %}
+    </div>
 {% endblock %}
