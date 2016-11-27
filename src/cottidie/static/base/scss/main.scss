@@ -1,0 +1,55 @@
+body {
+    font-family: sans-serif;
+}
+input[type="text"],
+input[type="password"]{
+    display: block;
+    margin: 1em;
+    font-family: sans-serif;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    padding: 10px;
+    border: none;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.1s;
+}
+input[type="text"]:focus,
+input[type="text"].focus {
+  border-bottom: solid 2px #969696;
+}
+button {
+  margin: 1em;
+  padding: 10px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #969696;
+  background: #fff;
+  border: solid 3px #c9c9c9;
+}
+
+button:hover, button.hover {
+  border-color: #969696;
+}
+
+button:active, button.active {
+  border-color: #000;
+}
+fieldset {
+  width: 1em;
+  border: solid 2px #c9c9c9;
+  border-padding: 1em;
+  border-radius: 5px;
+}
+fieldset:hover, fieldset.hover {
+  border-color: #969696;
+}
+legend {
+  color: #969696;
+  padding: 1em;
+}
+#vaguecube {
+  width: 10em;
+  padding: 10em 10em 0em 10em;
+}
