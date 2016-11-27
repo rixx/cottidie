@@ -18,3 +18,9 @@ var quill = new Quill('#scriptor', {
     'toolbar': toolbarOptions,
   }
 });
+var form = document.querySelector('form');
+form.onsubmit = function() {
+  var about = document.querySelector('input[name=entry]');
+  about.value = JSON.stringify(quill.getContents());
+  form.submit();
+};

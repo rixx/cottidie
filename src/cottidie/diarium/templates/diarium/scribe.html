@@ -15,11 +15,12 @@
 {% endblock %}
 
 {% block content %}
-    <form>
+    <form method="post">
+        {% csrf_token %}
         <div id="scriptor-form">
             <div id="scriptor">
-                What's on your mind?
             </div>
+            <input name="entry" type="hidden">
             <button type="submit">
                 Save
             </button>
