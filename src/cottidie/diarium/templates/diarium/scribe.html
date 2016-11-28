@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block external_stylesheets %}
-    <link href="https://cdn.quilljs.com/1.1.5/quill.snow.css" rel="stylesheet">
+    <link href="{% static "vendor/css/quill.snow-1.1.5.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block stylesheets %}
@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block scripts %}
-	<script src="https://cdn.quilljs.com/1.1.5/quill.js"></script>
+    <script src="{% static "vendor/js/quill-1.1.5.js" %}"></script>
     <script src="{% static "diarium/js/scribe.js" %}"></script>
 {% endblock %}
 
