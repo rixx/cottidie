@@ -27,7 +27,7 @@ class ScribeView(LoginRequiredMixin, TemplateView):
                 entry.text = content
                 entry.save(update_fields=['text'])
         else:
-            notebook = request.user.diaria.first()
+            notebook = request.user.diarium.default
             entry = Entry.objects.create(notebook=notebook, text=content)
         return redirect('diarium:scribe-sg', pk=entry.pk)
 
