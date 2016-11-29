@@ -1,3 +1,36 @@
+/* Counter class was taken from the quill guide for writing modules
+at http://quilljs.com/guides/building-a-custom-module/ */
+class Counter {
+  constructor(quill, options) {
+    this.quill = quill;
+    this.options = options;
+    this.wordContainer = document.querySelector(options.wordContainer);
+    this.charContainer = document.querySelector(options.charContainer);
+    quill.on('text-change', this.update.bind(this));
+    this.update();
+  }
+
+  calculate() {
+    let text = this.quill.getText();
+    text = text.trim();
+    return {
+      'words': text.length > 0 ? text.split(/\s+/).length : 0,
+      'chars': text.length,
+    }
+  }
+
+  update() {
+    var lengths = this.calculate();
+
+    var wordLabel = lengths.words > 1 ? ' words' : ' word';
+    var charLabel = lengths.chars > 1 ? ' characters' : ' character';
+
+    this.wordContainer.innerHTML = lengths.words + wordLabel;
+    this.charContainer.innerHTML = lengths.chars + charLabel;
+  }
+}
+
+Quill.register('modules/counter', Counter);
 var toolbarOptions = [
   [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -16,6 +49,10 @@ var quill = new Quill('#scriptor', {
     'clipboard': true,
     'history': true,
     'toolbar': toolbarOptions,
+    'counter': {
+      wordContainer: '#scribe-words',
+      charContainer: '#scribe-chars',
+    }
   }
 });
 if(typeof(String.prototype.trim) === "undefined")
