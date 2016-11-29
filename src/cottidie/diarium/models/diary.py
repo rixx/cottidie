@@ -26,6 +26,8 @@ class Notebook(models.Model):
 class Entry(models.Model):
     notebook = models.ForeignKey('Notebook')
     text = models.TextField(null=True, blank=True)
+    word_count = models.PositiveIntegerField(default=0)
+    character_count = models.PositiveIntegerField(default=0)
     created = models.DateTimeField(default=now)
     modified = models.DateTimeField(null=True, blank=True)
 
