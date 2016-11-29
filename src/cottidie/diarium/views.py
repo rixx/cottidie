@@ -16,19 +16,28 @@ class ScribeView(LoginRequiredMixin, TemplateView):
 
     def post(self, request, pk=None):
         content = request.POST.get('entry')
+        words = request.POST.get('words')
+        characters = request.POST.get('characters')
 
         if pk:
             qs = Entry.objects.filter(
                 notebook__user=self.request.user,
                 pk=pk,
             )
-            if qs.exists():
+            if qs.exists():  # TODO: find out how many words were added, save that information
                 entry = qs.first()
                 entry.text = content
-                entry.save(update_fields=['text'])
+                entry.word_count = words
+                entry.character_count = characters
+                entry.save(update_fields=['text', 'word_count', 'character_count'])
         else:
             notebook = request.user.diarium.default
-            entry = Entry.objects.create(notebook=notebook, text=content)
+            entry = Entry.objects.create(
+                notebook=notebook,
+                text=content,
+                word_count=words,
+                character_count=characters,
+            )
         return redirect('diarium:scribe-sg', pk=entry.pk)
 
     def get_context_data(self, pk=None):

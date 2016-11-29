@@ -22,11 +22,8 @@ class Counter {
   update() {
     var lengths = this.calculate();
 
-    var wordLabel = lengths.words > 1 ? ' words' : ' word';
-    var charLabel = lengths.chars > 1 ? ' characters' : ' character';
-
-    this.wordContainer.innerHTML = lengths.words + wordLabel;
-    this.charContainer.innerHTML = lengths.chars + charLabel;
+    this.wordContainer.innerHTML = lengths.words;
+    this.charContainer.innerHTML = lengths.chars;
   }
 }
 
@@ -67,7 +64,12 @@ quill.setContents(JSON.parse(document.getElementById('#scribe-content').innerHTM
 
 var form = document.querySelector('form');
 form.onsubmit = function() {
-  var about = document.querySelector('input[name=entry]');
-  about.value = JSON.stringify(quill.getContents());
+  var text = document.querySelector('input[name=entry]');
+  var words = document.querySelector('input[name=words]');
+  var characters = document.querySelector('input[name=characters]');
+
+  text.value = JSON.stringify(quill.getContents());
+  words.value = document.querySelector('#scribe-words').innerHTML;
+  characters.value = document.querySelector('#scribe-chars').innerHTML;
   form.submit();
 };
