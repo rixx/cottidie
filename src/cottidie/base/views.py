@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
+from django.utils.http import is_safe_url
 from django.views.generic import TemplateView
 
 
@@ -19,6 +20,10 @@ class LoginView(TemplateView):
             return redirect('base:login')
 
         login(request, user)
+        url = request.GET.get('next')
+
+        if url and is_safe_url(url, request.get_host()):
+            return redirect(url)
         return redirect('base:main')
 
 
