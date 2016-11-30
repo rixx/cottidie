@@ -24,7 +24,7 @@ class Notebook(models.Model):
 
 
 class Entry(models.Model):
-    notebook = models.ForeignKey('Notebook')
+    notebook = models.ForeignKey('Notebook', related_name='entries')
     text = models.TextField(null=True, blank=True)
     word_count = models.PositiveIntegerField(default=0)
     character_count = models.PositiveIntegerField(default=0)
