@@ -61,8 +61,6 @@ if(typeof(String.prototype.trim) === "undefined")
     };
 }
 
-quill.root.innerHTML = document.getElementById('#scribe-content').innerHTML.trim();
-
 var form = document.querySelector('form');
 form.onsubmit = function() {
   var text = document.querySelector('input[name=entry]');
