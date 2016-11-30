@@ -9,6 +9,12 @@ class MainView(LoginRequiredMixin, TemplateView):
     login_url = '/login/'
     template_name = 'diarium/main.html'
 
+    def get_context_data(self):
+        ctx = super().get_context_data()
+        ctx['notebooks'] = self.request.user.diaria.all()
+        ctx['entries'] = self.request.user.diarium.default.entries.all()
+        return ctx
+
 
 class ScribeView(LoginRequiredMixin, TemplateView):
     login_url = '/login/'
