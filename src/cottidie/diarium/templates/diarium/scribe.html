@@ -19,6 +19,11 @@
         {% csrf_token %}
         <div id="scriptor-form">
             <div id="scriptor">
+                {% if entry_data %}
+                    {{ entry_data|safe }}
+                {% else %}
+                    What's on your mind?<p></p>
+                {% endif %}
             </div>
             <input name="entry" type="hidden">
             <input name="words" type="hidden">
@@ -29,13 +34,6 @@
         </div>
     </form>
 
-    <div id='#scribe-content' style="display: none;">
-        {% if entry_data %}
-            {{ entry_data }}
-        {% else %}
-            {"ops":[{"insert":"What's on your mind?\n"}]}
-        {% endif %}
-    </div>
     <div id='scribe-words'></div>
     <div id='scribe-chars'></div>
 {% endblock %}

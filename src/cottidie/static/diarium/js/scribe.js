@@ -52,6 +52,7 @@ var quill = new Quill('#scriptor', {
     }
   }
 });
+
 if(typeof(String.prototype.trim) === "undefined")
 {
     String.prototype.trim = function()
@@ -60,7 +61,7 @@ if(typeof(String.prototype.trim) === "undefined")
     };
 }
 
-quill.setContents(JSON.parse(document.getElementById('#scribe-content').innerHTML.trim()));
+quill.root.innerHTML = document.getElementById('#scribe-content').innerHTML.trim();
 
 var form = document.querySelector('form');
 form.onsubmit = function() {
@@ -68,7 +69,7 @@ form.onsubmit = function() {
   var words = document.querySelector('input[name=words]');
   var characters = document.querySelector('input[name=characters]');
 
-  text.value = JSON.stringify(quill.getContents());
+  text.value = quill.root.innerHTML;
   words.value = document.querySelector('#scribe-words').innerHTML;
   characters.value = document.querySelector('#scribe-chars').innerHTML;
   form.submit();
