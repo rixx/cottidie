@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.timezone import now
 
@@ -34,6 +35,8 @@ class Entry(models.Model):
 
     def save(self, *args, **kwargs):
         self.modified = now()
+        if self.notebook.is_diary and self.modified.date() != self.created.date():
+            raise ValidationError('Diary entries can only be edited on the day of their creation.')
 
         if 'update_fields' in kwargs:
             kwargs['update_fields'] += ['modified']
