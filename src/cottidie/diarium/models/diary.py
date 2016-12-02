@@ -46,5 +46,5 @@ class Entry(models.Model):
     def __str__(self):
         return 'Entry on {date} in {notebook}'.format(
             date=self.created.strftime('%Y-%m-%d'),
-            notebook=str(self.notebook),
+            notebook=self.notebook.title,
         )
