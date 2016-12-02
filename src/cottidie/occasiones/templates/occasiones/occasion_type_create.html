@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+    <link href="{% static "occasiones/scss/form.scss" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="text-block">
+        <p>Create a new occasion type - anything that happens (ir)regularly and that
+        you wish to track (although if you want to track metrics, such as weight,
+        we'll have a better solution soon).</p>
+
+        <i>Examples: your period, last time you called your mom, anxiety attacks</i>
+    </div>
+
+    <form method="post">
+        <div id="occasio-form">
+            {% csrf_token %}
+            {{ form.name }}
+            {{ form.user }}
+            <button type="submit">
+                Create
+            </button>
+        </div>
+    </form>
+
+{% endblock %}
