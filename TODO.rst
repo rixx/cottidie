@@ -17,7 +17,3 @@ TODO
 
    - Select some types (numeric, two numbers, free form text, )
    - Implement default metrics
-
- - Do the occasions thing
-
-   - For both timestamps and durations
