@@ -1,5 +1,14 @@
 {% extends "base/base.html" %}
 {% block content %}
-Nothing here yet.<br>
-<a href="{% url "base:logout" %}">logout</a>
+    <p><a href="{% url "base:logout" %}">logout</a></p>
+
+    <div class="app-list">
+        <div class="app-entry">
+        <a class="app-entry button-link" href="{% url "diarium:main" %}">
+            Take notes
+        </a>
+        <a class="app-entry button-link" href="{% url "occasiones:main" %}">
+            Track events
+        </a>
+    </div>
 {% endblock %}
