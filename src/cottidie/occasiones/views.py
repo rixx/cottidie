@@ -1,8 +1,10 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
+from django.utils.timezone import now
 from django.views.generic import FormView, TemplateView
 
-from cottidie.occasiones.forms import OccasionTypeForm
+from cottidie.occasiones.models import OccasionType
+from cottidie.occasiones.forms import OccasionForm, OccasionTypeForm
 
 
 class MainView(TemplateView):
@@ -21,10 +23,8 @@ class OccasionTypeCreateView(FormView):
         form = self.get_form()
         if form.is_valid():
             result = form.save()
-            print(result)
             return self.form_valid(form)
         else:
-            print(form.errors)
             return redirect('occasiones:occasion-type-create')
 
     def get_initial(self):
@@ -40,5 +40,27 @@ class OccasionView(TemplateView):
     pass
 
 
-class OccasionCreateView(TemplateView):
-    pass
+class OccasionCreateView(FormView):
+    form_class = OccasionForm
+    template_name = 'occasiones/occasion_create.html'
+
+    def post(self, request, pk):
+        form = self.get_form()
+        if form.is_valid():
+            result = form.save()
+            return self.form_valid(form)
+        else:
+            print(form.errors)
+            return redirect('occasiones:occasion-create', pk=pk)
+
+    def get_initial(self):
+        return {
+            'typus': OccasionType.objects.filter(
+                user=self.request.user,
+                pk=self.kwargs['pk'],
+            ).first(),
+            'end': now(),
+        }
+
+    def get_success_url(self):
+        return reverse('occasiones:main')

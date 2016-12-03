@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+    <link href="{% static "occasiones/scss/form.scss" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="text-block">
+        <p>Create a new "{{ form.initial.typus.name }}" occasion.
+        </p>
+
+    </div>
+
+    <form method="post">
+        <div id="occasio-form">
+            {% csrf_token %}
+            {{ form.start }}
+            {{ form.end }}
+            {{ form.typus }}
+            {{ form.note }}
+            <button type="submit">
+                Create
+            </button>
+        </div>
+    </form>
+
+{% endblock %}
