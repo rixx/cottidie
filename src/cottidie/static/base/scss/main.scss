@@ -1,5 +1,6 @@
-body {
+.cottidie-content {
     font-family: sans-serif;
+    margin: 1em;
 }
 input[type="text"],
 input[type="password"]{
@@ -18,31 +19,34 @@ input[type="text"]:focus,
 input[type="text"].focus {
   border-bottom: solid 2px #969696;
 }
-button {
+button, .button-link {
   margin: 1em;
   padding: 10px;
-  appearance: none;
   box-shadow: none;
   border-radius: 5px;
   color: #969696;
   background: #fff;
   border: solid 3px #c9c9c9;
+  text-decoration: none;
+  transition: border 0.1s;
 }
-
-button:hover, button.hover {
+button:hover, button.hover, .button-link:hover, .button-link.hover {
   border-color: #969696;
 }
 
-button:active, button.active {
+button:active, button.active, .button-link:active, .button-link.active {
   border-color: #000;
 }
 fieldset {
   width: 1em;
+}
+fieldset, textarea {
   border: solid 2px #c9c9c9;
   border-padding: 1em;
   border-radius: 5px;
+  transition: border 0.1s;
 }
-fieldset:hover, fieldset.hover {
+fieldset:hover, fieldset.hover, textarea:hover, textarea.hover {
   border-color: #969696;
 }
 legend {
