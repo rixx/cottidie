@@ -8,7 +8,7 @@ from cottidie.occasiones.forms import OccasionForm, OccasionTypeForm
 
 
 class MainView(TemplateView):
-    pass
+    template_name = 'occasiones/main.html'
 
 
 class OccasionTypeView(TemplateView):

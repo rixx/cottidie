@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+    These are the occasions you are tracking:
+
+    <div id="occasion-list">
+        {% for occasion in user.occasion_types.all %}
+            <a href="{% url "occasiones:occasion-type" pk=occasion.id %}">
+                <button class="button-link">
+                    {{ occasion.name }}
+                </button>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}
