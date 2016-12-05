@@ -1,10 +1,6 @@
 {% extends "base/base.html" %}
 {% load staticfiles %}
 
-{% block stylesheets %}
-    <link href="{% static "occasiones/scss/form.scss" %}" rel="stylesheet">
-{% endblock %}
-
 {% block content %}
     <div class="text-block">
         <p>Create a new "{{ form.initial.typus.name }}" occasion.
