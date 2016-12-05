@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+    <h2>Occasion Type: {{ occasion_type.name }}</h2>
+    <h3>Last: {{ occasion_type.occasiones.last.start |timesince}} ago </h3>
+
+    <div id="occasion-list">
+        {% for occasion in occasion_type.occasiones.all %}
+            <div class="button-link">
+                <ul>
+                    <li>Start: {{ occasion.start }}</li>
+                    {% if occasion.end %}
+                        <li>End: {{ occasion.end }}</li>
+                    {% endif %}
+                    {{ occasion.note }}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
