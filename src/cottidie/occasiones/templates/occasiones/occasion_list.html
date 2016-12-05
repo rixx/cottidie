@@ -12,7 +12,12 @@
                     <li>Start: {{ occasion.start }}</li>
                     {% if occasion.end %}
                         <li>End: {{ occasion.end }}</li>
+                        <li>Duration: {{ occasion.start|timesince:occasion.end }}</li>
+                        <li> {{ occasion.end|timesince }} ago </li>
+                    {% else %}
+                        <li> {{ occasion.start|timesince }} ago </li>
                     {% endif %}
+                    <br>
                     {{ occasion.note }}
                 </ul>
             </div>
