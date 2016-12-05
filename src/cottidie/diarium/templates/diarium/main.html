@@ -8,11 +8,13 @@
 {% block content %}
 
     <h3> Latest entries in your default notebook "{{ user.diarium.default.title }}"</h3>
-        {% for entry in entries %}
-            <a class="entry-link" href="{% url "diarium:scribe-sg" pk=entry.id %}">
-                <button class="entry-list">
-                    {{ entry.text|truncatewords:7|safe }} … {{ entry.created }}
-                </button>
-            </a>
-        {% endfor %}
+        <div id="diarium-list">
+            {% for entry in entries %}
+                <a href="{% url "diarium:scribe-sg" pk=entry.pk %}">
+                    <button class="button-link">
+                        {{ entry.text|truncatewords:7|safe }} … {{ entry.created }}
+                    </button>
+                </a>
+            {% endfor %}
+        </div>
 {% endblock %}

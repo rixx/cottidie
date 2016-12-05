@@ -10,34 +10,10 @@
     height: 15em;
     font-size: 14px;
 }
-button {
-    box-sizing: border-box;
-    margin: 0;
-    margin-top: 1em;;
-    flex-grow: 4;
+#diarium-list .button-link {
+    display: block;
+    width: 45em;
 }
-.entry-list {
-  margin: 1em;
-  display:block;
-  padding: 10px;
-  appearance: none;
-  box-shadow: none;
-  border-radius: 5px;
-  color: #969696;
-  background: #fff;
-  border: solid 3px #c9c9c9;
-  width: 65em;
-  text-align: left;
-}
-.entry-list:hover, .entry-list.hover {
-  border-color: #969696;
-}
-
-.entry-list:active, .entry-list.active {
-  border-color: #000;
-}
-.entry-link {
-  display: block;
-  width: 100%;
-  text-decoration: none;
+#diarium-list a {
+    text-decoration: none;
 }
