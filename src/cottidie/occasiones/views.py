@@ -12,7 +12,13 @@ class MainView(TemplateView):
 
 
 class OccasionTypeView(TemplateView):
-    pass
+    template_name = 'occasiones/occasion_list.html'
+
+    def get_context_data(self, pk):
+        ctx = super().get_context_data()
+        qs = OccasionType.objects.filter(pk=pk, user=self.request.user)
+        ctx['occasion_type'] = qs.first() if qs.exists() else None
+        return ctx
 
 
 class OccasionTypeCreateView(FormView):
@@ -34,10 +40,6 @@ class OccasionTypeCreateView(FormView):
 
     def get_success_url(self):
         return reverse('occasiones:main')
-
-
-class OccasionView(TemplateView):
-    pass
 
 
 class OccasionCreateView(FormView):

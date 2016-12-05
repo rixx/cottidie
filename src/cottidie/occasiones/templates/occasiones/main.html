@@ -6,7 +6,7 @@
 
     <div id="occasion-list">
         {% for occasion in user.occasion_types.all %}
-            <a href="{% url "occasiones:occasion-type" pk=occasion.id %}">
+            <a href="{% url "occasiones:occasion-list" pk=occasion.id %}">
                 <button class="button-link">
                     {{ occasion.name }} (last {{ occasion.occasiones.last.start|timesince }} ago)
                 </button>
