@@ -58,6 +58,12 @@ legend {
   color: #969696;
   padding: 1em;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -85,4 +91,8 @@ legend {
 #vaguecube {
   width: 10em;
   padding: 10em 10em 0em 10em;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
 }
