@@ -59,12 +59,28 @@ legend {
   padding: 1em;
 }
 .navbar {
-  background-color: #969696;
+  display: flex;
+  align-items: center;
+  background-color: #c9c9c9;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin-bottom: 1em;
-  min-height: 1em;
   font-size: 16pt;
+  width: 100%;
+  padding: 0.5em;
+}
+.navbar-header, .navbar-content {
+  border: solid 2px #c9c9c9;
+  border-radius: 5px;
+  border-padding: 1em;
+  padding: 0.5em;
+  margin-left: 1em;
+  color: #333;
+}
+.navbar-content:hover, .navbar-content.hover {
+  border-color: #969696;
+}
+.navbar-header {
+    order: 0;
 }
 #vaguecube {
   width: 10em;

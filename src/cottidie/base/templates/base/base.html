@@ -15,12 +15,14 @@
     <body>
         <div class="navbar">
             <div class="navbar-header">
-                cottidie
+                <a href="{% url "base:main" %}">cottidie</a>
             </div>
-            <ul>
-                <li>diarium</li>
-                <li>occasiones</li>
-            </ul>
+            <div class="navbar-content">
+                <a href="{% url "diarium:main" %}">diarium</a>
+            </div>
+            <div class="navbar-content">
+                <a href="{% url "occasiones:main" %}">occasiones</a>
+            </div>
         </div>
         <div class="cottidie-content">
             {% block content %}
