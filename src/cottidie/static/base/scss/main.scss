@@ -2,6 +2,9 @@
     font-family: sans-serif;
     margin: 1em;
 }
+body {
+  margin: 0;
+}
 button,
 .button-link,
 fieldset,
@@ -90,7 +93,7 @@ html {
   border-color: #000;
 }
 .navbar-header {
-    order: 0;
+  order: 0;
 }
 .navbar-stretch {
     flex: 1;
