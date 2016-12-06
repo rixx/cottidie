@@ -58,7 +58,14 @@ legend {
   color: #969696;
   padding: 1em;
 }
-
+.navbar {
+  background-color: #969696;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 1em;
+  min-height: 1em;
+  font-size: 16pt;
+}
 #vaguecube {
   width: 10em;
   padding: 10em 10em 0em 10em;
