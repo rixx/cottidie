@@ -23,6 +23,10 @@
             <div class="navbar-content">
                 <a href="{% url "occasiones:main" %}">occasiones</a>
             </div>
+            <div class="navbar-stretch"></div>
+            <div class="navbar-content">
+                <a href="{% url "base:logout" %}">logout</a>
+            </div>
         </div>
         <div class="cottidie-content">
             {% block content %}

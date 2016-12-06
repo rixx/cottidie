@@ -70,23 +70,30 @@ html {
   background-color: #c9c9c9;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  font-size: 16pt;
-  width: 100%;
+  font-size: 14pt;
+  margin-bottom: 2em;
   padding: 0.5em;
+  width: 100%;
 }
 .navbar-header, .navbar-content {
-  border: solid 2px #c9c9c9;
+  border: solid 3px #c9c9c9;
   border-radius: 5px;
   border-padding: 1em;
-  padding: 0.5em;
-  margin-left: 1em;
   color: #333;
+  margin-left: 1em;
+  padding: 0.5em;
 }
 .navbar-content:hover, .navbar-content.hover {
   border-color: #969696;
 }
+.navbar-content:active, .navbar-content.active {
+  border-color: #000;
+}
 .navbar-header {
     order: 0;
+}
+.navbar-stretch {
+    flex: 1;
 }
 #vaguecube {
   width: 10em;
