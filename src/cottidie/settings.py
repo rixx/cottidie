@@ -37,6 +37,7 @@ LOCAL_APPS = [
     'cottidie',
     'cottidie.base',
     'cottidie.diarium',
+    'cottidie.metrica',
     'cottidie.occasiones',
 ]
 
