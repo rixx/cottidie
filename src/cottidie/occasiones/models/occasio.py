@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.conf import settings
 from django.db import models
 from django.utils.timezone import now
@@ -16,6 +18,12 @@ class Occasion(models.Model):
     note = models.CharField(null=True, blank=True, max_length=1500)
     start = models.DateTimeField(default=now)
     end = models.DateTimeField(null=True, blank=True)
+
+    @property
+    def duration(self) -> timedelta:
+        if self.end:
+            return self.end - self.start
+        return timedelta(0)
 
     def __str__(self):
         return '{typus} occasion on {date} ({user})'.format(
