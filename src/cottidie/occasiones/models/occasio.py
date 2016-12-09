@@ -9,7 +9,7 @@ class OccasionType(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='occasion_types')
     name = models.CharField(null=True, blank=True, max_length=250)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return 'Occasion type "{self.name}" of user {self.user}'.format(self=self)
 
 
@@ -25,7 +25,7 @@ class Occasion(models.Model):
             return self.end - self.start
         return timedelta(0)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return '{typus} occasion on {date} ({user})'.format(
             typus=self.typus,
             date=self.start.strftime('%Y-%m-%d'),

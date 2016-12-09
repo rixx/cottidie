@@ -14,7 +14,7 @@ class MainView(TemplateView):
 class OccasionTypeView(TemplateView):
     template_name = 'occasiones/occasion_list.html'
 
-    def get_context_data(self, pk):
+    def get_context_data(self, pk: int) -> dict:
         ctx = super().get_context_data()
         qs = OccasionType.objects.filter(pk=pk, user=self.request.user)
         ctx['occasion_type'] = qs.first() if qs.exists() else None
@@ -33,7 +33,7 @@ class OccasionTypeCreateView(FormView):
         else:
             return redirect('occasiones:occasion-type-create')
 
-    def get_initial(self):
+    def get_initial(self) -> dict:
         return {
             'user': self.request.user,
         }
@@ -46,7 +46,7 @@ class OccasionCreateView(FormView):
     form_class = OccasionForm
     template_name = 'occasiones/occasion_create.html'
 
-    def post(self, request, pk):
+    def post(self, request, pk: int):
         form = self.get_form()
         if form.is_valid():
             result = form.save()
@@ -55,7 +55,7 @@ class OccasionCreateView(FormView):
             print(form.errors)
             return redirect('occasiones:occasion-create', pk=pk)
 
-    def get_initial(self):
+    def get_initial(self) -> dict:
         return {
             'typus': OccasionType.objects.filter(
                 user=self.request.user,
