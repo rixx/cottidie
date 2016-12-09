@@ -5,7 +5,6 @@ from .base import urls as baseurls
 from .diarium import urls as diariumurls
 from .occasiones import urls as occasionesurls
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^diarium/', include(diariumurls, namespace='diarium')),

@@ -3,8 +3,8 @@ from django.shortcuts import redirect
 from django.utils.timezone import now
 from django.views.generic import FormView, TemplateView
 
-from cottidie.occasiones.models import OccasionType
 from cottidie.occasiones.forms import OccasionForm, OccasionTypeForm
+from cottidie.occasiones.models import OccasionType
 
 
 class MainView(TemplateView):
