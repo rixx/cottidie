@@ -24,5 +24,6 @@ Usage
 Development
 ===========
 
-opt-depends
------------
+There are separate dev dependencies in `requirements/development.txt` which you probably
+want to install. They are used for code styling (isort, pylama) and testing (pytest and its
+addons).
