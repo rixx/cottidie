@@ -8,7 +8,10 @@
         {% for occasion in user.occasion_types.all %}
             <a href="{% url "occasiones:occasion-list" pk=occasion.id %}">
                 <button class="button-link">
-                    {{ occasion.name }} (last {{ occasion.occasiones.last.start|timesince }} ago)
+                    {{ occasion.name }}
+                    {% if occasion.occasiones.exists %}
+                        (last {{ occasion.occasiones.last.start|timesince }} ago)
+                    {% endif %}
                 </button>
             </a>
         {% endfor %}
