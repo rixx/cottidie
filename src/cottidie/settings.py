@@ -43,6 +43,12 @@ LOCAL_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + LOCAL_APPS
 
+try:
+    import django_extensions
+    INSTALLED_APPS.append('django_extensions')
+except:
+    pass
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
