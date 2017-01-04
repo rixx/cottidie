@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+    These are the metrics you are tracking:
+
+    <div id="occasion-list">
+        {% for metric in user.metrics.all %}
+            <a href="{% url "metrica:metric-detail" pk=metric.id %}">
+                <button class="button-link">
+                    {{ metric.name }}
+                    {% if metric.measurements.exists %}
+                        (last {{ metric.measurements.last.timestamp|timesince }} ago)
+                    {% endif %}
+                </button>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}
