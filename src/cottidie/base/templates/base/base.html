@@ -29,6 +29,14 @@
             </div>
         </div>
         <div class="cottidie-content">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message message-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             {% block content %}
             {% endblock %}
         </div>

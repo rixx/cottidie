@@ -106,3 +106,29 @@ a {
   text-decoration: inherit;
   color: inherit;
 }
+
+.message {
+  background: #fff;
+  border: solid 3px #c9c9c9;
+  border-radius: 5px;
+  border-padding: 1em;
+  box-shadow: none;
+  color: #969696;
+  margin: 1em;
+  padding: 10px;
+  text-decoration: none;
+  transition: border 0.1s;
+  width: 80%;
+}
+.message-error {
+    border-color: #c90000;
+    color: #c90000;
+}
+.message-success {
+    border-color: #00c900;
+    color: #00c900;
+}
+.message-warning {
+    border-color: #ffc900;
+    color: #ffc900;
+}
