@@ -132,3 +132,17 @@ a {
     border-color: #ffc900;
     color: #ffc900;
 }
+.button-add {
+    background-color: #8f8;
+    border-color: #00c900;
+    border-radius: 100%;
+    color: #00c900;
+    font-size: 12pt;
+    font-weight: bold;
+    height: 4em;
+    width: 4em;
+}
+.button-add:hover, .button-add.hover {
+    background-color: #fff;
+    border-color: #00c900;
+}
