@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+    <h2>Metrice: {{ metric.name }}</h2>
+    <h3>Last: {{ metric.measurements.last.start |timesince}} ago </h3>
+
+    <div id="occasion-list">
+        {% for measurement in metric.measurements.all %}
+            <div class="button-link">
+                <ul>
+                    <li>{{ measurement.timestamp }}</li>
+                </ul>
+                {{ measurement.value }}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

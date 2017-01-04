@@ -11,6 +11,16 @@ class MainView(TemplateView):
     template_name = 'metrica/main.html'
 
 
+class MetricDetailView(TemplateView):
+    template_name = 'metrica/metric_detail.html'
+
+    def get_context_data(self, pk: int) -> dict:
+        ctx = super().get_context_data()
+        qs = Metric.objects.filter(pk=pk, user=self.request.user)
+        ctx['metric'] = qs.first() if qs.exists() else None
+        return ctx
+
+
 class MetricCreateView(FormView):
     form_class = MetricForm
     template_name = 'metrica/metric_create.html'
