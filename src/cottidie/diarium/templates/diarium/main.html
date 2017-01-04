@@ -8,6 +8,9 @@
 {% block content %}
 
     <h3> Latest entries in your default notebook "{{ user.diarium.default.title }}"</h3>
+    <a href="{% url "diarium:scribe" %}">
+        <button class="button-add">+</button>
+    </a>
         <div id="diarium-list">
             {% for entry in entries %}
                 <a href="{% url "diarium:scribe-sg" pk=entry.pk %}">

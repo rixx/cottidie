@@ -1,7 +1,9 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-
+    <a href="{% url "metrica:metric-create"%}">
+        <button class="button-add">+</button>
+    </a>
     These are the metrics you are tracking:
 
     <div id="occasion-list">

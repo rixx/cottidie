@@ -2,6 +2,9 @@
 
 {% block content %}
 
+    <a href="{% url "occasiones:occasion-type-create"%}">
+        <button class="button-add">+</button>
+    </a>
     These are the occasions you are tracking:
 
     <div id="occasion-list">

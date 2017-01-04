@@ -5,6 +5,10 @@
     <h2>Occasion Type: {{ occasion_type.name }}</h2>
     <h3>Last: {{ occasion_type.occasiones.last.start |timesince}} ago </h3>
 
+    <a href="{% url "occasiones:occasion-create" pk=occasion_type.pk %}">
+        <button class="button-add">+</button>
+    </a>
+
     <div id="occasion-list">
         {% for occasion in occasion_type.occasiones.all %}
             <div class="button-link">

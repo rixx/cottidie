@@ -2,9 +2,12 @@
 
 {% block content %}
 
-    <h2>Metrice: {{ metric.name }}</h2>
+    <h2>Metric: {{ metric.name }}</h2>
     <h3>Last: {{ metric.measurements.last.start |timesince}} ago </h3>
 
+    <a href="{% url "metrica:measurement-create" pk=metric.pk %}">
+        <button class="button-add">+</button>
+    </a>
     <div id="occasion-list">
         {% for measurement in metric.measurements.all %}
             <div class="button-link">
