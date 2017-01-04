@@ -40,3 +40,25 @@ class MetricCreateView(FormView):
 
     def get_success_url(self):
         return reverse('metrica:main')
+
+
+class MeasurementCreateView(FormView):
+    form_class = MeasurementForm
+    template_name = 'metrica/measurement_create.html'
+
+    def post(self, request, pk: int):
+        form = self.get_form()
+        if form.is_valid():
+            result = form.save()
+            return self.form_valid(form)
+        else:
+            print(form.errors)
+            return redirect('metrica:measurement-create', pk=pk)
+
+    def get_initial(self):
+        return {
+            'metric': Metric.objects.get(pk=self.kwargs['pk'])
+        }
+
+    def get_success_url(self):
+        return reverse('metrica:main')

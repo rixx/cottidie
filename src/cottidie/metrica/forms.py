@@ -11,3 +11,14 @@ class MetricForm(forms.ModelForm):
         widgets = {
             'user': forms.widgets.HiddenInput,
         }
+
+
+class MeasurementForm(forms.ModelForm):
+
+    class Meta:
+        model = Measurement
+        exclude = []
+        widgets = {
+            'note': forms.widgets.Textarea,  # will be adjusted accordin to metric type
+            'metric': forms.widgets.HiddenInput,
+        }
