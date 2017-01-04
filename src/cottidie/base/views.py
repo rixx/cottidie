@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
@@ -20,6 +21,7 @@ class LoginView(TemplateView):
             return redirect('base:login')
 
         login(request, user)
+        messages.success(request, 'Hi there!')
         url = request.GET.get('next')
 
         if url and is_safe_url(url, request.get_host()):
@@ -29,6 +31,7 @@ class LoginView(TemplateView):
 
 def logout_view(request):
     logout(request)
+    messages.success(request, 'Bye, see you soon!')
     return redirect('base:login')
 
 

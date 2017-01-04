@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.utils.timezone import now
@@ -29,8 +30,10 @@ class MetricCreateView(FormView):
         form = self.get_form()
         if form.is_valid():
             result = form.save()
+            messages.success(request, 'You\'ve got a new metric!')
             return self.form_valid(form)
         else:
+            messages.error(request, 'The metric could not be created.')
             return redirect('metrica:metric-create')
 
     def get_initial(self) -> dict:
@@ -50,9 +53,11 @@ class MeasurementCreateView(FormView):
         form = self.get_form()
         if form.is_valid():
             result = form.save()
+            messages.success(request, 'The measurement has been saved.')
             return self.form_valid(form)
         else:
             print(form.errors)
+            messages.error(request, 'The metric could not be saved.')
             return redirect('metrica:measurement-create', pk=pk)
 
     def get_initial(self):

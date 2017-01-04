@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.utils.timezone import now
@@ -29,8 +30,10 @@ class OccasionTypeCreateView(FormView):
         form = self.get_form()
         if form.is_valid():
             result = form.save()
+            messages.success(request, 'You\'ve got a new occasion type!')
             return self.form_valid(form)
         else:
+            messages.error(request, 'Sorry, the occasion type could not be saved.')
             return redirect('occasiones:occasion-type-create')
 
     def get_initial(self) -> dict:
@@ -50,9 +53,11 @@ class OccasionCreateView(FormView):
         form = self.get_form()
         if form.is_valid():
             result = form.save()
+            messages.success(request, 'Occasion saved.')
             return self.form_valid(form)
         else:
             print(form.errors)
+            messages.error(request, 'Sorry, the occasion could not be saved.')
             return redirect('occasiones:occasion-create', pk=pk)
 
     def get_initial(self) -> dict:

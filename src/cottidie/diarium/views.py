@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
@@ -35,7 +36,11 @@ class ScribeView(LoginRequiredMixin, TemplateView):
                 entry.text = content
                 entry.word_count = words
                 entry.character_count = characters
-                entry.save(update_fields=['text', 'word_count', 'character_count'])
+                try:
+                    entry.save(update_fields=['text', 'word_count', 'character_count'])
+                    messages.success(request, 'Entry saved.')
+                except:
+                    messages.error(request, 'Failed to save the entry!')
         else:
             notebook = request.user.diarium.default
             entry = Entry.objects.create(
@@ -44,6 +49,7 @@ class ScribeView(LoginRequiredMixin, TemplateView):
                 word_count=words,
                 character_count=characters,
             )
+            messages.success(request, 'Entry saved.')
         return redirect('diarium:scribe-sg', pk=entry.pk)
 
     def get_context_data(self, pk=None):
