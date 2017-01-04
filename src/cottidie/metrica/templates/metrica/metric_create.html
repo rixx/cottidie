@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="text-block">
+        <p>Create a new metric - anything that happens (ir)regularly and that
+        you wish to track. There are several metric types available for optimal
+        tracking and evaluation.</p>
+
+        <i>Examples: your weight, your blood pressure, your mood (in short words)</i>
+    </div>
+
+    <form method="post">
+        <div id="occasio-form">
+            {% csrf_token %}
+            {{ form.type_choice }}
+            {{ form.name }}
+            {{ form.user }}
+            <button type="submit">
+                Create
+            </button>
+        </div>
+    </form>
+
+{% endblock %}
