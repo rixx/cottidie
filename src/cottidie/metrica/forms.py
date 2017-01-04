@@ -22,3 +22,14 @@ class MeasurementForm(forms.ModelForm):
             'note': forms.widgets.Textarea,  # will be adjusted accordin to metric type
             'metric': forms.widgets.HiddenInput,
         }
+
+
+class Goal(forms.ModelForm):
+
+    class Meta:
+        model = Goal
+        exclude = []
+        widgets = {
+            'motivation_text': forms.widgets.Textarea,
+            'metric': forms.widgets.HiddenInput,
+        }
